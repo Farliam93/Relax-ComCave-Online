@@ -387,6 +387,7 @@ namespace RelaxComCave {
                 if((ShutdownTime.Value - DateTime.Now).TotalSeconds <= 0) {
                     if (SubmitGehenIfShutdownRequest) {
                         foreach(var usr in MyUsers) {
+                            Task.Run(() => usr.TryLogin()).GetAwaiter().GetResult();
                             Task.Run(() => usr.SubmitGehen()).GetAwaiter().GetResult(); // Call Sync
                         }
                     }
