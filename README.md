@@ -2,7 +2,7 @@
 
 ComCave Online Zeiterfassung
 
-Dieser Bot kann einen oder auch mehrere Personen von der Online Zeiterfassung abmelden.
+Dieser Bot kann einen oder auch mehrere Personen von der Online Zeiterfassung an und abmelden.
 Im Hintergrund wird nur mit POST/GET Requests gearbeitet, keine zusätzlichen Verweiße werden gebraucht.
 
 Zusätzlich könnt ihr einen Timer stellen zu der das Programm die Gruppe abmeldet, und den PC herunterfährt.
