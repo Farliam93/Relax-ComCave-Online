@@ -55,7 +55,7 @@ namespace RelaxComCave {
 
         #region MainMenu
         private static async Task MainRoutine() {
-            var AscIIBall = GetASCIIFromManifest().Split(Environment.NewLine);
+            var AscIIBall = GetASCIIFromManifest().Split('\n');
             while (true) {
                 Console.CursorVisible = true;
                 Console.Clear();
@@ -373,22 +373,23 @@ namespace RelaxComCave {
                     ShutdownPCIfTimeOver = shutdown;
                     ShutdownTime = fixTime;
                     token = new CancellationTokenSource();
-                    var run = Task.Run(() => ShutdownRunner());
+                    var run = Task.Run(async () => await ShutdownRunner());
                     break;
                 } else {
                     break;
                 }
             }         
         }
-        private static void ShutdownRunner() {
+        private static async Task ShutdownRunner() {
             if(token == null) return;
             if(ShutdownTime == null) return;
             while (token != null && !token.IsCancellationRequested) {
                 if((ShutdownTime.Value - DateTime.Now).TotalSeconds <= 0) {
                     if (SubmitGehenIfShutdownRequest) {
                         foreach(var usr in MyUsers) {
-                            Task.Run(() => usr.TryLogin()).GetAwaiter().GetResult();
-                            Task.Run(() => usr.SubmitGehen()).GetAwaiter().GetResult(); // Call Sync
+                            usr.ClearSession();        // Aktuell scheint es hier Probleme zu geben. Das Session Token verliert nach 30 Minuten (?) die Gültigkeit 
+                            await usr.TryLogin();      // Deswegen die vorherige Session löschen, einen neuen Login erstellen.
+                            await usr.SubmitGehen();   // Anschließend ausloggen. Testen....
                         }
                     }
                     if (ShutdownPCIfTimeOver) {
