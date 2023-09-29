@@ -405,9 +405,9 @@ this.PortalName = PortalBenutzer;
         }
 
         /// <summary>
-        /// Diese Funktion schein eine ComCave eigene Creation zum verschleiern des Kennwortes zu sein.
-        /// Originale Funktion -> chached_20230721_62bcdd1dd6.js -> LINE 804.
-        /// Die Erste der Funktion ist ist MathCrypt, die nächste im JS stellt den Hash Algo dar.
+        /// Diese Funktion scheint eine ComCave eigene Creation zum verschleiern des Kennwortes zu sein.
+        /// Originale Funktion -> cached_20230721_62bcdd1dd6.js -> LINE 804.
+        /// Die Erste der Funktion ist MathCrypt, die nächste im JS stellt den Hash Algo dar.
         /// Perform Login erstellt am Ende die Values welche im POST Request verwendet werden.
         /// </summary>
         /// <param name="RawKennwort">Das Originale Kennwort</param>
