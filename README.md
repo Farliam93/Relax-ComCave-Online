@@ -18,4 +18,5 @@ Alle Personen auf "Kommen setzen".
 
 4. Verstecken -> Blendet das Fenster aus, um es wieder anzuzeigen muss man den Text, den man sich ausgedacht hat in die Zwischenablage kopieren.
 
-5. 
+Hier ein Video zur Verwendung. Meddl Off
+https://www.youtube.com/watch?v=zIr-XLbWPc8&t=63s
