@@ -62,6 +62,10 @@ namespace RelaxComCave.Runner {
 
         #region Login
         /// <summary>
+        /// Entfernt die letzte Session.
+        /// </summary>
+        public void ClearSession() => Headers.Clear();
+        /// <summary>
         /// Führt einen Login mit den zuletzt verwendeten Logindaten aus.
         /// </summary>
         /// <returns></returns>
